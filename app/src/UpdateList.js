@@ -7,7 +7,7 @@ function UpdateList(props){
     const handleShow = () => setShow(true);
     return (
         <React.Fragment>
-            <Button variant="primary" onClick={(evt)=>{
+            <Button variant="info" onClick={(evt)=>{
                         handleShow();
                         props.getList(evt, props.elementId)
                     }}>

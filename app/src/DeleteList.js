@@ -7,13 +7,13 @@ function DeleteList(props){
     const handleShow = () => setShow(true);
     return (
         <React.Fragment>
-            <Button variant="primary" onClick={(evt)=>{
-                        handleShow();
-                        props.getList(evt, props.elementId)
+            <Button variant="warning" onClick={(evt)=>{
+                        // handleShow();
+                        props.deleteList(evt, props.elementId)
                     }}>
                 Delete
             </Button>
-            <Modal show={show} onHide={handleClose}>
+            {/* <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Delete List</Modal.Title>
                 </Modal.Header>
@@ -41,7 +41,7 @@ function DeleteList(props){
                         Update
                     </Button>
                 </Modal.Footer>
-            </Modal>
+            </Modal> */}
         </React.Fragment>
     )
 }

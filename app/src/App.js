@@ -16,7 +16,7 @@ class App extends React.Component {
     }
 
     getLists = ()=>{
-      fetch("http://localhost:5000/posts").then(res=>res.json())
+      fetch("/api/books").then(res=>res.json())
       .then(
         result=>this.setState({
         loading: false,
@@ -35,7 +35,7 @@ class App extends React.Component {
           }
         },
         ()=>{
-          fetch("http://localhost:5000/posts/"+id)
+          fetch("/api/book/"+id)
             .then(res=>res.json())
             .then(
               result=>this.setState({
@@ -50,7 +50,7 @@ class App extends React.Component {
     }
 
     updateList = (event, id)=>{
-      fetch("http://localhost:5000/posts/"+id, {
+      fetch(`/api/book/${id}`, {
         method: "PUT",
         headers:{
           "Content-Type": "application/json"
@@ -69,7 +69,7 @@ class App extends React.Component {
     }
 
     deleteList = (event, id)=>{
-      fetch("http://localhost:5000/posts/"+id, {
+      fetch("/api/book/"+id, {
         method: "DELETE"
       }).then(res=>res.json())
       .then(result=>{
@@ -84,7 +84,7 @@ class App extends React.Component {
     }
 
     createList = ()=>{
-      fetch("http://localhost:5000/posts", {
+      fetch("/api/book/", {
         method: "POST",
         headers:{
           "Content-Type": "application/json"
@@ -128,12 +128,14 @@ class App extends React.Component {
       return(
         <div className="container">
           <span className="title-bar">
-            <button type="button" className="btn btn-primary" onClick={this.getLists}>
+            {/* <button type="button" className="btn btn-primary" onClick={this.getLists}>
               Get Lists
-            </button>
+            </button> */}
+            {this.getLists()}
+
             <CreatList singledata={this.state.singledata} 
-            handleChange={this.handleChange}
-            createList = {this.createList}
+              handleChange={this.handleChange}
+              createList = {this.createList}
             />
           </span>
           {listTable}

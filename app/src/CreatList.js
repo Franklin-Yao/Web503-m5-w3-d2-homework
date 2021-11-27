@@ -8,7 +8,7 @@ function CreatList(props){
     return (
         <React.Fragment>
             <Button variant="primary" onClick={handleShow}>
-                Creat New List
+                Add Book
             </Button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
